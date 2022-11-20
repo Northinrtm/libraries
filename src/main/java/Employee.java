@@ -1,12 +1,24 @@
+import org.apache.commons.lang3.StringUtils;
+
 public class Employee {
     private String name;
     private int otdel;
     private double salary;
     private static int id = 0;
-    private int idEmp=1;
+    private int idEmp = 1;
 
     Employee(String name, int otdel, double salary) {
-        this.name = name;
+        if (StringUtils.isBlank(name)) {
+            String[] nameSplit = StringUtils.split(name);
+            name = "";
+            for (String s : nameSplit) {
+                s = StringUtils.capitalize(s);
+                name += s + " ";
+            }
+            this.name = name;
+        } else {
+            throw new RuntimeException("400 Bad Request");
+        }
         this.otdel = otdel;
         this.salary = salary;
         idEmp = id++;
@@ -14,7 +26,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Сотрудник " + name + " id: "+ idEmp + " отдел: " + otdel + " зарплата: " + salary;
+        return "Сотрудник " + name + " id: " + idEmp + " отдел: " + otdel + " зарплата: " + salary;
     }
 
     public String getName() {

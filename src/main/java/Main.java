@@ -2,6 +2,9 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println(StringUtils.isBlank("Иванов Иван Иванович"));
+
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.addEmp("Иванов Иван Иванович", 1, 20000);
         employeeBook.addEmp("Давыдов Давид Давидович", 1, 30000);
