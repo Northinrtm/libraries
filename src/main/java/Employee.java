@@ -8,7 +8,7 @@ public class Employee {
     private int idEmp = 1;
 
     Employee(String name, int otdel, double salary) {
-        if (!(StringUtils.isBlank(name)) {
+        if (!(StringUtils.isBlank(name))) {
             String[] nameSplit = StringUtils.split(name);
             name = "";
             for (String s : nameSplit) {
